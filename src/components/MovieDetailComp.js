@@ -2,7 +2,6 @@
 /*global document fetch:true*/
 /* eslint react/prop-types: 0 */
 /*eslint class-methods-use-this: ["error", { "exceptMethods": ["handlerNavigate"] }] */
-/* eslint react/prop-types: 0 */
 
 
 import React from 'react';

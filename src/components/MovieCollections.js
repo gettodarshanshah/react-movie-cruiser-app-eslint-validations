@@ -1,6 +1,5 @@
 /* eslint react/jsx-filename-extension:0 */
 /*global localStorage:true*/
-/*eslint no-unused-expressions: [2, { allowShortCircuit: true, allowTernary: true }]*/
 
 
 import React from 'react';
