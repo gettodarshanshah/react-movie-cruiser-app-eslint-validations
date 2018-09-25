@@ -62,20 +62,20 @@ const MoviesCard = (props) => {
                   />
                   <CardContent className="cardcontent">
                     <Typography gutterBottom variant="title">
-                                                Title :
+                      Title :
                       {' '}
                       {title}
                     </Typography>
                     <Typography variant="caption">
                       <strong>
-                                                    original_language :
+                        original_language :
                           {' '}
-                          {original_language}
-                          <br />
-                                                    popularity :
+                        {original_language}
+                        <br />
+                        popularity :
                           {' '}
-                          {popularity}
-                        </strong>
+                        {popularity}
+                      </strong>
                     </Typography>
                   </CardContent>
                 </CardActionArea>
@@ -87,7 +87,7 @@ const MoviesCard = (props) => {
                                         </Button> */}
                   <Button className="button-style" color="inherit">
                     <NavLink className="button-style" to={`/MovieDetail/${id}`}>
-                                                View Details
+                      View Details
                     </NavLink>
                   </Button>
                 </CardActions>
@@ -100,7 +100,7 @@ const MoviesCard = (props) => {
           );
         })
       ) : ''
-                }
+      }
 
     </div>
 
