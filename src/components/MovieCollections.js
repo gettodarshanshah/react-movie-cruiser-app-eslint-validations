@@ -66,7 +66,7 @@ class MovieCollections extends React.Component {
     this.setState({
 
     });
-    this.handleClickOpen;
+    this.handleClickOpen();
 
   }
 
@@ -90,9 +90,6 @@ class MovieCollections extends React.Component {
           </Typography>
           {listcategory.map(data => data)}
         </div>
-        <div className='movie-collections'>
-          {listmovies.map(data => data)}
-        </div>
         <Dialog
           open={this.state.open}
           onClose={() => { this.handleClose }}
@@ -100,7 +97,7 @@ class MovieCollections extends React.Component {
           aria-describedby="alert-dialog-slide-description"
         >
           <DialogTitle id="alert-dialog-slide-title">
-            {"Use Google's location service?"}
+            Movie List
           </DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-slide-description">

@@ -4,6 +4,12 @@
         "react/destructuring-assignment": [
             "disable",
             "never"
-        ]
+        ],
+        "prefer-destructuring": ["error", {
+            "array": false,
+            "object": false
+          }, {
+            "enforceForRenamedProperties": false
+          }]
     }
 }
