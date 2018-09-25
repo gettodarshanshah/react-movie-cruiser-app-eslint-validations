@@ -82,7 +82,7 @@ class MovieCollections extends React.Component {
         <div className='movie-collections'>
           <Typography className='heading' variant='headline'>
             <strong>
-              This is movie collection view
+              Movie Categories and Collections
             </strong>
           </Typography>
           {listcategory.map((data) => {

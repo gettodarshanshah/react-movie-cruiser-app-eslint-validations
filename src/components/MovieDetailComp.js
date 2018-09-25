@@ -42,22 +42,22 @@ class MovieDetailComp extends React.Component {
                 <img src={`https://image.tmdb.org/t/p/original/${movieDetailCard.poster_path}`} alt='Nothing'></img>
                 <div className='text'>
                     <Typography variant='headline' >
-                        Movie Title : {movieDetailCard.title}
+                        <strong>Movie Title :</strong> {movieDetailCard.title}
                     </Typography>
                     <Typography variant='title'>
-                        Tagline : {movieDetailCard.tagline}
+                        <strong>Tagline :</strong> {movieDetailCard.tagline}
                     </Typography>
                     <Typography variant='body1'>
-                        Votes : {movieDetailCard.vote_count}
+                        <strong>Votes :</strong> {movieDetailCard.vote_count}
                     </Typography>
                     <Typography variant='body1'>
-                        Release Date : {movieDetailCard.release_date}
+                        <strong>Release Date :</strong> {movieDetailCard.release_date}
                     </Typography>
                     <Typography variant='body1'>
-                        Revenue : {movieDetailCard.revenue}
+                        <strong>Revenue :</strong> {movieDetailCard.revenue}
                     </Typography>
-                    <Typography variant='caption' color='secondary'>
-                        Overview : {movieDetailCard.overview}
+                    <Typography variant='subheading' color='inherit'>
+                        <strong>Overview :</strong> {movieDetailCard.overview}
                     </Typography>
                 </div>
                 <Button className='button-style' variant='raised' onClick={() => this.handlerNavigate()}>

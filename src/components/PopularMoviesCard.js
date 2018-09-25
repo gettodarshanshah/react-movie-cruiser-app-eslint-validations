@@ -27,8 +27,8 @@ const PopularMoviesCard = (props) => {
                                     <CardMedia
                                         className='media'
                                         component='img'
-                                        width='350'
-                                        height='300'
+                                        // width='350'
+                                        // height='300'
                                         image={`https://image.tmdb.org/t/p/original/${poster_path}`}
                                         title={title}
                                     />
