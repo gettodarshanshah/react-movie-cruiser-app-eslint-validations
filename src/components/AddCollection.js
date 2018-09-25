@@ -70,11 +70,12 @@ class AddCollection extends React.Component {
         console.log('ec');
         for (var i = 0; i < localStorage.length; i++) {
             let v = i;
-            listcat.push(
+            if(localStorage.key(v) != 'loglevel:webpack-dev-server')
+            {listcat.push(
                 <Button key={v} onClick={() => this.addToCategory(localStorage.key(v))}>
                     {localStorage.key(v)}
                 </Button>
-            )
+            )}
         }
         this.setState({
 

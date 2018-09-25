@@ -5,6 +5,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import { Typography } from '@material-ui/core';
 
 
 let listcategory = [];
@@ -36,11 +37,13 @@ class MovieCollections extends React.Component {
     console.log('All Category called');
     for (var i = 0; i < localStorage.length; i++) {
       let v = i;
-      listcategory.push(
-        <Button variant='outlined' key={v} onClick={() => this.displayCollections(localStorage.key(v))}>
-          {localStorage.key(v)}
-        </Button>
-      )
+      if (localStorage.key(v) != 'loglevel:webpack-dev-server') {
+        listcategory.push(
+          <Button variant='outlined' key={v} onClick={() => this.displayCollections(localStorage.key(v))}>
+            {localStorage.key(v)}
+          </Button>
+        )
+      }
     }
     this.setState({
 
@@ -75,9 +78,13 @@ class MovieCollections extends React.Component {
     return (
       <div>
         <div className='movie-collections'>
-          This is movie collection view
-        {listcategory.map(data => data)}
-        {listmovies.map(data => data)}
+          <Typography className='heading' variant='headline'>
+            <strong>
+              This is movie collection view
+            </strong>
+          </Typography>
+          {listcategory.map(data => data)}
+          {listmovies.map(data => data)}
         </div>
         <Dialog
           open={this.state.open}
