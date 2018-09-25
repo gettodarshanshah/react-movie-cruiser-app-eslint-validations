@@ -1,3 +1,7 @@
+/* eslint react/jsx-filename-extension:0 */
+/*global localStorage document:true*/
+/* eslint react/prop-types: 0 */
+
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -23,11 +27,6 @@ class AddCollection extends React.Component {
         this.addToCategory = this.addToCategory.bind(this);
     }
 
-    componentDidMount() {
-        const { moviename } = this.props.location.state;
-        console.log(moviename);
-    }
-
 
     handleClickOpen() {
         this.setState({ open: true });
@@ -38,7 +37,7 @@ class AddCollection extends React.Component {
     };
 
     handleCreate() {
-        console.log('clicked create !!!');
+        // console.log('clicked create !!!');
         let temp = [];
         let value = document.getElementById('name').value;
         const { moviename } = this.props.location.state;
@@ -55,9 +54,9 @@ class AddCollection extends React.Component {
     }
 
     addToCategory(collectionName) {
-        console.log(collectionName);
+        // console.log(collectionName);
         let temp = [];
-        console.log(localStorage.getItem(collectionName));
+        // console.log(localStorage.getItem(collectionName));
         const { moviename } = this.props.location.state;
         temp.push(localStorage.getItem(collectionName));
         temp.push(moviename);
@@ -67,15 +66,16 @@ class AddCollection extends React.Component {
 
     existingCategory() {
         listcat = [];
-        console.log('ec');
-        for (var i = 0; i < localStorage.length; i++) {
+        // console.log('ec');
+        for (var i = 0; i < localStorage.length; i += 1) {
             let v = i;
-            if(localStorage.key(v) != 'loglevel:webpack-dev-server')
-            {listcat.push(
-                <Button key={v} onClick={() => this.addToCategory(localStorage.key(v))}>
-                    {localStorage.key(v)}
-                </Button>
-            )}
+            if (localStorage.key(v) !== 'loglevel:webpack-dev-server') {
+                listcat.push(
+                    <Button key={v} onClick={() => this.addToCategory(localStorage.key(v))}>
+                        {localStorage.key(v)}
+                    </Button>
+                )
+            }
         }
         this.setState({
 

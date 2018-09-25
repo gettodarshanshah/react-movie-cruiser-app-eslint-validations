@@ -1,3 +1,9 @@
+/* eslint react/jsx-filename-extension:0 */
+/*global window:true*/
+/*eslint class-methods-use-this: ["error", { "exceptMethods": ["handleHome"] }] */
+/* eslint react/prop-types: 0 */
+
+
 import AppBar from '@material-ui/core/AppBar';
 import React from 'react';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -5,7 +11,6 @@ import Typography from '@material-ui/core/Typography';
 import Input from '@material-ui/core/Input';
 import Homeicon from '@material-ui/icons/HomeTwoTone';
 import Button from '@material-ui/core/Button';
-import MoviesCard from './MoviesCard';
 import { NavLink } from 'react-router-dom';
 
 

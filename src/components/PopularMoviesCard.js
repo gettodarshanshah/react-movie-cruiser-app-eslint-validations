@@ -1,3 +1,7 @@
+/* eslint react/jsx-filename-extension:0 */
+/*eslint camelcase: 0*/
+/* eslint react/prop-types: 0 */
+
 import React from 'react';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -7,30 +11,16 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import CardActions from '@material-ui/core/CardActions';
 import { NavLink } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 
-
-class PopularMoviesCard extends React.Component {
-
-    constructor(props){
-        super(props);
-        this.handlerNavigate = this.handlerNavigate.bind(this);
-    }
-
-    handlerNavigate(movieCard){
-        console.log(movieCard.title);
-        console.log(movieCard);
-        document.getElementById('navigate').click();
-    }
-
-    render() {
-        let movieCard = this.props.popularMovieList;
+const PopularMoviesCard = (props) => {
+  
+        let movieCard = props.popularMovieList;
         return (
             <div className='popular-movies-card'>
 
                 {movieCard != null ? (
                     movieCard.map(movie => {
-                        const { id, title, original_language, popularity, overview, poster_path } = movie;
+                        const { id, title, original_language, popularity, poster_path } = movie;
                         return (
                             <Card className='card' key={id}>
                                 <CardActionArea className='card-action-area'>
@@ -59,18 +49,8 @@ class PopularMoviesCard extends React.Component {
                                         <NavLink className='button-style' to={`/MovieDetail/${id}`}>
                                             View Details
                                         </NavLink>
-                                        
+
                                     </Button>
-                                    {/* <Button className='button-style' color='inherit' onClick = {() => this.handlerNavigate(movieCard)}>
-                                        Add To Collection
-                                            <Link id="navigate"
-                                            to={{
-                                                pathname: "/AddCollection",
-                                                state: {
-                                                    moviename: movieCard.title
-                                                }
-                                            }}></Link>
-                                    </Button> */}
                                 </CardActions>
                             </Card>
                         )
@@ -81,7 +61,7 @@ class PopularMoviesCard extends React.Component {
             </div>
 
         );
-    }
+    
 }
 
 

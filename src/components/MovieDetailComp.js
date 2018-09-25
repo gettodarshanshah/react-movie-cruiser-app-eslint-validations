@@ -1,3 +1,10 @@
+/* eslint react/jsx-filename-extension:0 */
+/*global document fetch:true*/
+/* eslint react/prop-types: 0 */
+/*eslint class-methods-use-this: ["error", { "exceptMethods": ["handlerNavigate"] }] */
+/* eslint react/prop-types: 0 */
+
+
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import { Button } from '@material-ui/core';
@@ -10,7 +17,7 @@ class MovieDetailComp extends React.Component {
         this.state = {
             movies: []
         }
-        this.handlerNavigate = this.handlerNavigate.bind(this);
+        // this.handlerNavigate = this.handlerNavigate.bind(this);
     }
 
     componentDidMount() {
@@ -20,11 +27,12 @@ class MovieDetailComp extends React.Component {
                 this.setState(() => ({ movies }));
                // console.log(this.state.movies);
             })
-            .catch(error => { console.log(error) });
+            // .catch(error => { console.log(error) });
     }
-    handlerNavigate(movieDetailCard){
-        console.log(movieDetailCard.title);
-        console.log(movieDetailCard);
+
+    handlerNavigate(){
+        // console.log(movieDetailCard.title);
+        // console.log(movieDetailCard);
         document.getElementById('navigate').click();
     }
 
@@ -53,7 +61,7 @@ class MovieDetailComp extends React.Component {
                         Overview : {movieDetailCard.overview}
                     </Typography>
                 </div>
-                <Button className='button-style' variant='raised' onClick={() => this.handlerNavigate(movieDetailCard)}>
+                <Button className='button-style' variant='raised' onClick={() => this.handlerNavigate()}>
                     {/* <NavLink className='button-style' to='/AddCollection'> */}
                         Add to Collection
                     {/* </NavLink> */}

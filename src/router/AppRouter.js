@@ -1,9 +1,11 @@
+/* eslint react/jsx-filename-extension:0 */
+
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import App from '../components/App.js';
-import MovieCollections from '../components/MovieCollections.js';
-import MovieDetailComp from '../components/MovieDetailComp.js';
-import AddCollection from '../components/AddCollection.js';
+import App from '../components/App';
+import MovieCollections from '../components/MovieCollections';
+import MovieDetailComp from '../components/MovieDetailComp';
+import AddCollection from '../components/AddCollection';
 
 const AppRouter = () => (
   <BrowserRouter>

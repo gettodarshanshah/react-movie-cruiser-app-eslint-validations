@@ -1,0 +1,9 @@
+{
+    "extends": "airbnb",
+    "rules": {
+        "react/destructuring-assignment": [
+            "disable",
+            "never"
+        ]
+    }
+}

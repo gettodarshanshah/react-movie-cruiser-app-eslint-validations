@@ -1,3 +1,8 @@
+/* eslint react/jsx-filename-extension:0 */
+/*global localStorage:true*/
+/*eslint no-unused-expressions: [2, { allowShortCircuit: true, allowTernary: true }]*/
+
+
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -22,22 +27,13 @@ class MovieCollections extends React.Component {
     this.handleClose = this.handleClose.bind(this);
   }
 
-
-  handleClickOpen() {
-    this.setState({ open: true });
-  };
-
-  handleClose() {
-    this.setState({ open: false });
-  };
-
   componentDidMount() {
     listcategory = [];
     // write code here to retrieve your data from Local Storage or JSON server
-    console.log('All Category called');
-    for (var i = 0; i < localStorage.length; i++) {
+    // console.log('All Category called');
+    for (var i = 0; i < localStorage.length; i += 1) {
       let v = i;
-      if (localStorage.key(v) != 'loglevel:webpack-dev-server') {
+      if (localStorage.key(v) !== 'loglevel:webpack-dev-server') {
         listcategory.push(
           <Button variant='outlined' key={v} onClick={() => this.displayCollections(localStorage.key(v))}>
             {localStorage.key(v)}
@@ -56,7 +52,7 @@ class MovieCollections extends React.Component {
     this.state.collection = [];
     this.state.collection.push(localStorage.getItem(key).split(','));
     for (let i = 0; i < this.state.collection[0].length; i += 1) {
-      console.log(this.state.collection[0][i]);
+      // console.log(this.state.collection[0][i]);
       let v = i;
       listmovies.push(
         <Button key={v} variant='contained'>
@@ -64,15 +60,24 @@ class MovieCollections extends React.Component {
         </Button>
 
       )
-      this.handleClickOpen;
 
 
     }
     this.setState({
 
     });
+    this.handleClickOpen;
 
   }
+
+  handleClickOpen() {
+    this.setState({ open: true });
+  };
+
+  handleClose() {
+    this.setState({ open: false });
+  };
+
 
   render() {
     return (
@@ -84,6 +89,8 @@ class MovieCollections extends React.Component {
             </strong>
           </Typography>
           {listcategory.map(data => data)}
+        </div>
+        <div className='movie-collections'>
           {listmovies.map(data => data)}
         </div>
         <Dialog

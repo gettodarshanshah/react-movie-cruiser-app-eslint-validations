@@ -1,15 +1,16 @@
+/* eslint react/jsx-filename-extension:0 */
+/* eslint react/prop-types: 0 */
+
 import React from 'react';
 import PopularMoviesCard from './PopularMoviesCard';
 
-class PopularMovies extends React.Component {
-    render() {
+const PopularMovies = (props) => {
         
         return (
             <PopularMoviesCard 
-            popularMovieList = {this.props.popularMovies}
+            popularMovieList = {props.popularMovies}
             />
         );
-    }
 
 }
 
