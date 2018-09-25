@@ -34,14 +34,12 @@ class MovieCollections extends React.Component {
       let v = i;
       if (localStorage.key(v) !== 'loglevel:webpack-dev-server') {
         listcategory.push(
-          <Button variant='outlined' key={v} onClick={() => this.displayCollections(localStorage.key(v))}>
-            {localStorage.key(v)}
-          </Button>
+          localStorage.key(v)
         )
       }
     }
     this.setState({
-
+      collection : listcategory
     });
 
   }
@@ -87,7 +85,10 @@ class MovieCollections extends React.Component {
               This is movie collection view
             </strong>
           </Typography>
-          {listcategory.map(data => data)}
+          {listcategory.map((data,i) => {
+            return(<Button variant='outlined' key={i} onClick={() => this.displayCollections(data)}>
+            {data}
+            </Button>)})}
         </div>
         <Dialog
           open={this.state.open}
