@@ -2,6 +2,7 @@
 /* eslint no-unused-expressions:0 */
 
 import React from 'react';
+import NavBar from './NavigationBar';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -82,6 +83,7 @@ class MovieCollections extends React.Component {
     let { listMovies } = this.state;
     return (
       <div>
+        <NavBar />
         <div className='movie-collections'>
           <Typography className='heading' variant='headline'>
             <strong>

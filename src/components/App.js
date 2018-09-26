@@ -4,7 +4,7 @@ import React, { Fragment } from 'react';
 import Typography from '@material-ui/core/Typography';
 import Appbar from './Appbar';
 import PopularMovies from './PopularMovies';
-import MoviesCard from './MoviesCard';
+import MoviesCard from './SearchedMovies';
 import '../styles/styles.scss';
 
 const API_KEY = 'c7c2954a02370c3c8e407441cee0a34f';

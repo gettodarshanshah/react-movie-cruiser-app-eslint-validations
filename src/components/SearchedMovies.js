@@ -13,7 +13,7 @@ import CardActions from '@material-ui/core/CardActions';
 import { NavLink } from 'react-router-dom';
 
 
-const MoviesCard = (props) => {
+const SearchedMovies = (props) => {
 
   const {movieList} = props;
   return (
@@ -78,4 +78,4 @@ const MoviesCard = (props) => {
 };
 
 
-export default MoviesCard;
+export default SearchedMovies;

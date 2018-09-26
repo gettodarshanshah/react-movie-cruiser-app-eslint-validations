@@ -4,6 +4,7 @@
 
 
 import React from 'react';
+import NavBar from './NavigationBar';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -89,6 +90,8 @@ class AddCollection extends React.Component {
     render() {
         let { categoryList, open } = this.state;
         return (
+            <div>
+                <NavBar />
             <div className='main-div'>
                 <Button variant='outlined' onClick={this.handleClickOpen}>Create New Category</Button>
                 <Button variant='outlined' onClick={this.existingCategory}>Existing Category</Button>
@@ -121,6 +124,7 @@ class AddCollection extends React.Component {
                         </Button>
                     </DialogActions>
                 </Dialog>
+            </div>
             </div>
         );
     }
