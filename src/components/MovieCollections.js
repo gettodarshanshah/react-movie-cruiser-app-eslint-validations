@@ -1,5 +1,4 @@
 /* eslint react/jsx-filename-extension:0 */
-/*global localStorage:true*/
 /* eslint no-unused-expressions:0 */
 
 import React from 'react';

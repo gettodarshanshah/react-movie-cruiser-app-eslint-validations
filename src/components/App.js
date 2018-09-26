@@ -1,5 +1,5 @@
 /* eslint react/jsx-filename-extension:0 */
-/*global fetch:true*/
+
 import React, { Fragment } from 'react';
 import Typography from '@material-ui/core/Typography';
 import Appbar from './Appbar';

@@ -1,7 +1,5 @@
 /* eslint react/jsx-filename-extension:0 */
-/*global document fetch:true*/
 /* eslint react/prop-types: 0 */
-/*eslint class-methods-use-this: ["error", { "exceptMethods": ["handlerNavigate"] }] */
 
 
 import React from 'react';
@@ -31,8 +29,7 @@ class MovieDetailComp extends React.Component {
     }
 
     handlerNavigate(){
-        // console.log(movies.title);
-        // console.log(movies);
+        this.setState(() => ({}));
         document.getElementById('navigate').click();
     }
 

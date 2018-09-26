@@ -1,8 +1,5 @@
 /* eslint react/jsx-filename-extension:0 */
-/*global window:true*/
-/*eslint class-methods-use-this: ["error", { "exceptMethods": ["handleHome"] }] */
 /* eslint react/prop-types: 0 */
-
 
 import AppBar from '@material-ui/core/AppBar';
 import React from 'react';
@@ -32,6 +29,7 @@ class Appbar extends React.Component {
 
 
     handleHome() {
+        this.setState(() => ({}));
         window.location.reload();
     }
 

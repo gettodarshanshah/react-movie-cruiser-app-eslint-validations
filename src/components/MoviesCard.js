@@ -1,6 +1,6 @@
 /* eslint react/jsx-filename-extension:0 */
 /* eslint react/prop-types: 0 */
-/*eslint camelcase: 0*/
+/* eslint camelcase:0 */
 
 import React from 'react';
 import Card from '@material-ui/core/Card';
@@ -35,7 +35,7 @@ const MoviesCard = (props) => {
                     className="media"
                     component="img"
                     width="400"
-                    height="300"
+                    height="350"
                     image={`https://image.tmdb.org/t/p/original/${poster_path}`}
                     title={title}
                   />
