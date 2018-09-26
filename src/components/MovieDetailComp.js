@@ -64,7 +64,7 @@ class MovieDetailComp extends React.Component {
                     {/* </NavLink> */}
                     <Link id="navigate" 
                     to={{
-                        pathname:"/AddCollection",
+                        pathname:"/add-collection",
                         state:{
                             moviename: movies.title
                         }

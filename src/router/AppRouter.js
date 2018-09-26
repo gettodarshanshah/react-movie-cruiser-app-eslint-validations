@@ -13,8 +13,8 @@ const AppRouter = () => (
       <Switch>
         <Route path="/" component={App} exact={true} />
         <Route path="/collections" component={MovieCollections} />
-        <Route path="/MovieDetail/:id" component={MovieDetailComp} />
-        <Route path="/AddCollection" component={AddCollection} />
+        <Route path="/movie-detail/:id" component={MovieDetailComp} />
+        <Route path="/add-collection" component={AddCollection} />
       </Switch>
     </div>
   </BrowserRouter>

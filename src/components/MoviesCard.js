@@ -60,7 +60,7 @@ const MoviesCard = (props) => {
                 </CardActionArea>
                 <CardActions className="card-actions">
                   <Button className="button-style" color="inherit">
-                    <NavLink className="button-style" to={`/MovieDetail/${id}`}>
+                    <NavLink className="button-style" to={`/movie-detail/${id}`}>
                       View Details
                     </NavLink>
                   </Button>
