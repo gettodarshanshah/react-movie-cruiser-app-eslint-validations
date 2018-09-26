@@ -21,10 +21,15 @@ class Appbar extends React.Component {
         this.handleHome = this.handleHome.bind(this);
     }
 
-    handleChange(event) {
-        this.setState({
-            value: event.target.value
-        });
+    handleChange(event) {  
+        if(event.target.value == null){
+            window.location.reload();
+        }
+        else{
+            this.setState({
+                value: event.target.value
+            });
+        }
     }
 
 

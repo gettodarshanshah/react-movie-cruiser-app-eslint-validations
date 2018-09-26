@@ -37,6 +37,11 @@ class App extends React.Component {
             movieDetails: [],
             movieValue: movieName
         });
+        if(movieName == null)
+        {
+            window.location.reload();
+        }
+        else{
         fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${movieName}&page=1&include_adult=false`)
             .then(response => response.json())
             .then(response => {
@@ -60,6 +65,7 @@ class App extends React.Component {
             }
             )
             // .catch(error => { console.log(error) });
+        }
     }
 
     render() {

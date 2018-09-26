@@ -1,5 +1,4 @@
 /* eslint react/jsx-filename-extension:0 */
-/*eslint camelcase: 0*/
 /* eslint react/prop-types: 0 */
 
 import React from 'react';
@@ -16,19 +15,16 @@ const PopularMoviesCard = ({popularMovieList}) => {
         let movieCard = popularMovieList;
         return (
             <div className='popular-movies-card'>
-
                 {movieCard != null ? (
                     movieCard.map(movie => {
-                        const { id, title, original_language, popularity, poster_path } = movie;
+                        const { id, title, original_language: originalLanguage, popularity, poster_path: posterPath } = movie;
                         return (
                             <Card className='card' key={id}>
                                 <CardActionArea className='card-action-area'>
                                     <CardMedia
                                         className='media'
                                         component='img'
-                                        // width='350'
-                                        // height='300'
-                                        image={`https://image.tmdb.org/t/p/original/${poster_path}`}
+                                        image={`https://image.tmdb.org/t/p/original/${posterPath}`}
                                         title={title}
                                     />
                                     <CardContent className='cardcontent'>
@@ -37,7 +33,7 @@ const PopularMoviesCard = ({popularMovieList}) => {
                                         </Typography>
                                         <Typography variant='caption'>
                                             <strong>
-                                                original_language : {original_language}<br></br>
+                                                original_language : {originalLanguage}<br></br>
                                                 popularity : {popularity}
                                             </strong>
                                         </Typography>

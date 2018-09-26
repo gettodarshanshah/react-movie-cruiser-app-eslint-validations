@@ -1,6 +1,5 @@
 /* eslint react/jsx-filename-extension:0 */
 /* eslint react/prop-types: 0 */
-/* eslint camelcase:0 */
 
 import React from 'react';
 import Card from '@material-ui/core/Card';
@@ -22,7 +21,7 @@ const SearchedMovies = (props) => {
       {movieList != null ? (
         movieList.map((movie) => {
           const {
-            id, title, original_language, popularity, poster_path,
+            id, title, original_language: originalLanguage, popularity, poster_path: posterPath,
           } = movie;
           return (
             <div key={id}>
@@ -36,7 +35,7 @@ const SearchedMovies = (props) => {
                     component="img"
                     width="400"
                     height="350"
-                    image={`https://image.tmdb.org/t/p/original/${poster_path}`}
+                    image={`https://image.tmdb.org/t/p/original/${posterPath}`}
                     title={title}
                   />
                   <CardContent className="cardcontent">
@@ -49,7 +48,7 @@ const SearchedMovies = (props) => {
                       <strong>
                         original_language :
                           {' '}
-                        {original_language}
+                        {originalLanguage}
                         <br />
                         popularity :
                           {' '}
