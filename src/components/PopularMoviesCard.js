@@ -12,9 +12,8 @@ import Button from '@material-ui/core/Button';
 import CardActions from '@material-ui/core/CardActions';
 import { NavLink } from 'react-router-dom';
 
-const PopularMoviesCard = (props) => {
-  
-        let movieCard = props.popularMovieList;
+const PopularMoviesCard = ({popularMovieList}) => {
+        let movieCard = popularMovieList;
         return (
             <div className='popular-movies-card'>
 

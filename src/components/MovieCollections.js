@@ -46,14 +46,15 @@ class MovieCollections extends React.Component {
 
   displayCollections(key) {
     let listMoviesTemp = [];
-    this.state.collection = [];
-    this.state.collection.push(localStorage.getItem(key).split(','));
-    for (let i = 0; i < this.state.collection[0].length; i += 1) {
+    let { collection } = this.state;
+    collection = [];
+    collection.push(localStorage.getItem(key).split(','));
+    for (let i = 0; i < collection[0].length; i += 1) {
       // console.log(this.state.collection[0][i]);
       let localStorageIndex = i;
       listMoviesTemp.push(
         <Button key={localStorageIndex} variant='contained'>
-          {this.state.collection[0][localStorageIndex]}
+          {collection[0][localStorageIndex]}
         </Button>
 
       )
@@ -77,6 +78,9 @@ class MovieCollections extends React.Component {
 
 
   render() {
+    let { listCategory } = this.state;
+    let { open } = this.state;
+    let { listMovies } = this.state;
     return (
       <div>
         <div className='movie-collections'>
@@ -85,14 +89,14 @@ class MovieCollections extends React.Component {
               Movie Categories and Collections
             </strong>
           </Typography>
-          {this.state.listCategory.map((data) => {
+          {listCategory.map((data) => {
             return (<Button variant='outlined' onClick={() => this.displayCollections(data)}>
               {data}
             </Button>)
           })}
         </div>
         <Dialog
-          open={this.state.open}
+          open={open}
           onClose={() => { this.handleClose }}
           aria-labelledby="alert-dialog-slide-title"
           aria-describedby="alert-dialog-slide-description"
@@ -102,7 +106,7 @@ class MovieCollections extends React.Component {
           </DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-slide-description">
-              {this.state.listMovies.map(data => data)}
+              {listMovies.map(data => data)}
             </DialogContentText>
           </DialogContent>
           <DialogActions>

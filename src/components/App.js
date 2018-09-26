@@ -14,7 +14,7 @@ class App extends React.Component {
         super(props);
         this.state = {
             movieDetails: [],
-            total_pages: 0,
+            totalPages: 0,
             popularMovies: null,
             movieValue: null
         }
@@ -40,10 +40,12 @@ class App extends React.Component {
         fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${movieName}&page=1&include_adult=false`)
             .then(response => response.json())
             .then(response => {
-                this.setState({ total_pages: response.total_pages });
+                this.setState({ totalPages: response['total_pages'] });
+                const {totalPages} = this.state;
+                const { movieValue } = this.state;
                 let tempMovies = [];
-                for (let i = 1; i <= this.state.total_pages; i += 1) {
-                    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${this.state.movieValue}&page=${i}&include_adult=false`)
+                for (let i = 1; i <= totalPages; i += 1) {
+                    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${movieValue}&page=${i}&include_adult=false`)
                         .then(resp => resp.json())
                         .then(moviesData => {
                             moviesData.results.forEach(result => {
@@ -61,24 +63,26 @@ class App extends React.Component {
     }
 
     render() {
+        const {movieDetails} = this.state;
+        const {popularMovies} = this.state;
         return (
             <Fragment>
                 <div>
                     <Appbar
-                        movieDetails={this.state.movieDetails}
+                        movieDetails={movieDetails}
                         handleSearch={this.handleSearch}
                     />
                 </div>
                 <div>
                 <MoviesCard
-                    movieList={this.state.movieDetails}
+                    movieList={movieDetails}
                 />
                 </div>
                 <div>
                     <Typography className='popular-heading' variant='display1' gutterBottom>
                         Popular Movies
                     </Typography>
-                    <PopularMovies popularMovies={this.state.popularMovies}
+                    <PopularMovies popularMovies={popularMovies}
                     />
                 </div>
             </Fragment>

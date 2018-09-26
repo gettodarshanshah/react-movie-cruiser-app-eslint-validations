@@ -37,6 +37,8 @@ class Appbar extends React.Component {
 
     render() {
 
+        const {handleSearch} = this.props;
+        let {value} = this.state;
         return (
             <div>
                 <AppBar position='static'>
@@ -52,7 +54,7 @@ class Appbar extends React.Component {
                         </Typography>
                         <div className='appbar-right'>
                             <Input className='input' placeholder='Movie Name..' onChange={this.handleChange}></Input>
-                            <Button onClick={() => { this.props.handleSearch(this.state.value) }} variant="extendedFab">Search</Button>
+                            <Button onClick={() => { handleSearch(value) }} variant="extendedFab">Search</Button>
                         </div>
                     </Toolbar>
                 </AppBar>

@@ -20,7 +20,8 @@ class MovieDetailComp extends React.Component {
     }
 
     componentDidMount() {
-        fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}?api_key=c7c2954a02370c3c8e407441cee0a34f&language=en-US`)
+        const { match } = this.props;
+        fetch(`https://api.themoviedb.org/3/movie/${match.params.id}?api_key=c7c2954a02370c3c8e407441cee0a34f&language=en-US`)
             .then(response => response.json())
             .then(movies => {
                 this.setState(() => ({ movies }));
@@ -30,34 +31,34 @@ class MovieDetailComp extends React.Component {
     }
 
     handlerNavigate(){
-        // console.log(movieDetailCard.title);
-        // console.log(movieDetailCard);
+        // console.log(movies.title);
+        // console.log(movies);
         document.getElementById('navigate').click();
     }
 
     render() {
-        const movieDetailCard = this.state.movies;
+        const { movies } = this.state;
         return (
             <div className='parent-container'>
-                <img src={`https://image.tmdb.org/t/p/original/${movieDetailCard.poster_path}`} alt='Nothing'></img>
+                <img src={`https://image.tmdb.org/t/p/original/${movies.poster_path}`} alt='Nothing'></img>
                 <div className='text'>
                     <Typography variant='headline' >
-                        <strong>Movie Title :</strong> {movieDetailCard.title}
+                        <strong>Movie Title :</strong> {movies.title}
                     </Typography>
                     <Typography variant='title'>
-                        <strong>Tagline :</strong> {movieDetailCard.tagline}
+                        <strong>Tagline :</strong> {movies.tagline}
                     </Typography>
                     <Typography variant='body1'>
-                        <strong>Votes :</strong> {movieDetailCard.vote_count}
+                        <strong>Votes :</strong> {movies.vote_count}
                     </Typography>
                     <Typography variant='body1'>
-                        <strong>Release Date :</strong> {movieDetailCard.release_date}
+                        <strong>Release Date :</strong> {movies.release_date}
                     </Typography>
                     <Typography variant='body1'>
-                        <strong>Revenue :</strong> {movieDetailCard.revenue}
+                        <strong>Revenue :</strong> {movies.revenue}
                     </Typography>
                     <Typography variant='subheading' color='inherit'>
-                        <strong>Overview :</strong> {movieDetailCard.overview}
+                        <strong>Overview :</strong> {movies.overview}
                     </Typography>
                 </div>
                 <Button className='button-style' variant='raised' onClick={() => this.handlerNavigate()}>
@@ -68,7 +69,7 @@ class MovieDetailComp extends React.Component {
                     to={{
                         pathname:"/AddCollection",
                         state:{
-                            moviename: movieDetailCard.title
+                            moviename: movies.title
                         }
                     }}></Link>
                 </Button>

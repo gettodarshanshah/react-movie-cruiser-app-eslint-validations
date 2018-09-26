@@ -5,10 +5,10 @@ import React from 'react';
 import PopularMoviesCard from './PopularMoviesCard';
 
 const PopularMovies = (props) => {
-        
+        let {popularMovies} = props; 
         return (
             <PopularMoviesCard 
-            popularMovieList = {props.popularMovies}
+            popularMovieList = {popularMovies}
             />
         );
 

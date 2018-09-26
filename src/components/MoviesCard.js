@@ -10,38 +10,17 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import CardActions from '@material-ui/core/CardActions';
-// import MovieDetail from './MovieDetail';
 import { NavLink } from 'react-router-dom';
 
 
 const MoviesCard = (props) => {
-  // constructor(props) {
-  //     super(props);
-  //     this.state = {
-  //         openModal: false
-  //     }
-  //     this.handleOpenModal = this.handleOpenModal.bind(this);
-  //     this.handleCloseModal = this.handleCloseModal.bind(this);
-  // }
 
-  // handleOpenModal() {
-  //     this.setState({
-  //         openModal: true
-  //     });
-  // }
-
-  // handleCloseModal() {
-  //     this.setState({
-  //         openModal: false
-  //     });
-  // };
-
-  const movieCard = props.movieList;
+  const {movieList} = props;
   return (
     <div className="movies-card">
 
-      {movieCard != null ? (
-        movieCard.map((movie) => {
+      {movieList != null ? (
+        movieList.map((movie) => {
           const {
             id, title, original_language, popularity, poster_path,
           } = movie;
@@ -80,11 +59,6 @@ const MoviesCard = (props) => {
                   </CardContent>
                 </CardActionArea>
                 <CardActions className="card-actions">
-                  {/* <Button className='button-style' color='inherit'>
-                                            <NavLink className='button-style' to='/AddCollection'>
-                                                Add to Collection
-                                            </NavLink>
-                                        </Button> */}
                   <Button className="button-style" color="inherit">
                     <NavLink className="button-style" to={`/MovieDetail/${id}`}>
                       View Details
@@ -92,10 +66,6 @@ const MoviesCard = (props) => {
                   </Button>
                 </CardActions>
               </Card>
-              {/* <MovieDetail
-                                openModal={this.state.openModal}
-                                handleCloseModal = {this.handleCloseModal}
-                                /> */}
             </div>
           );
         })
