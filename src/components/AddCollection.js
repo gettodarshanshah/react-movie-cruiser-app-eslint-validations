@@ -13,14 +13,13 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-let categoryList = [];
-
 class AddCollection extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
             open: false,
+            categoryList : []
         };
         this.handleClickOpen = this.handleClickOpen.bind(this);
         this.handleClose = this.handleClose.bind(this);
@@ -67,12 +66,12 @@ class AddCollection extends React.Component {
 
 
     existingCategory() {
-        categoryList = [];
+        let categorylisttemp = [];
         // console.log('ec');
         for (var i = 0; i < localStorage.length; i += 1) {
             let localStorageIndex = i;
             if (localStorage.key(localStorageIndex) !== 'loglevel:webpack-dev-server') {
-                categoryList.push(
+                categorylisttemp.push(
                     <Button
                         key={localStorageIndex}
                         onClick={() => this.addToCategory(localStorage.key(localStorageIndex))}>
@@ -82,7 +81,7 @@ class AddCollection extends React.Component {
             }
         }
         this.setState({
-
+            categoryList : categorylisttemp
         });
 
     }
@@ -92,7 +91,7 @@ class AddCollection extends React.Component {
             <div className='main-div'>
                 <Button variant='outlined' onClick={this.handleClickOpen}>Create New Category</Button>
                 <Button variant='outlined' onClick={this.existingCategory}>Existing Category</Button>
-                {categoryList.map(data => data)}
+                {this.state.categoryList.map(data => data)}
                 <Dialog
                     open={this.state.open}
                     onClose={() => { this.handleClose }}

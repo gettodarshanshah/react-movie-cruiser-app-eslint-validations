@@ -7,6 +7,7 @@
     margin-top: 0.5em;
     background-color: $default-background-color;
     overflow-y: auto;
+    min-width: 200px;
     .card {
         background-color : $card-background-color;
         margin: 4px;
