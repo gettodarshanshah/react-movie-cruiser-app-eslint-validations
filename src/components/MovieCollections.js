@@ -11,14 +11,13 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { Typography } from '@material-ui/core';
 
-
 class MovieCollections extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       collection: [],
-      listcategory: [],
-      listmovies: [],
+      listCategory: [],
+      listMovies: [],
       open: false
     };
     this.displayCollections = this.displayCollections.bind(this);
@@ -27,32 +26,32 @@ class MovieCollections extends React.Component {
   }
 
   componentDidMount() {
-    let listcategorytemp = [];
+    let listCategoryTemp = [];
     // write code here to retrieve your data from Local Storage or JSON server
     // console.log('All Category called');
     for (var i = 0; i < localStorage.length; i += 1) {
       let localStorageIndex = i;
       if (localStorage.key(localStorageIndex) !== 'loglevel:webpack-dev-server') {
-        listcategorytemp.push(
+        listCategoryTemp.push(
           localStorage.key(localStorageIndex)
         )
       }
     }
     this.setState({
-      collection: listcategorytemp,
-      listcategory: listcategorytemp
+      collection: listCategoryTemp,
+      listCategory: listCategoryTemp
     });
 
   }
 
   displayCollections(key) {
-    let listmoviestemp = [];
+    let listMoviesTemp = [];
     this.state.collection = [];
     this.state.collection.push(localStorage.getItem(key).split(','));
     for (let i = 0; i < this.state.collection[0].length; i += 1) {
       // console.log(this.state.collection[0][i]);
       let localStorageIndex = i;
-      listmoviestemp.push(
+      listMoviesTemp.push(
         <Button key={localStorageIndex} variant='contained'>
           {this.state.collection[0][localStorageIndex]}
         </Button>
@@ -62,7 +61,7 @@ class MovieCollections extends React.Component {
 
     }
     this.setState({
-      listmovies: listmoviestemp
+      listMovies: listMoviesTemp
     });
     this.handleClickOpen();
 
@@ -86,7 +85,7 @@ class MovieCollections extends React.Component {
               Movie Categories and Collections
             </strong>
           </Typography>
-          {this.state.listcategory.map((data) => {
+          {this.state.listCategory.map((data) => {
             return (<Button variant='outlined' onClick={() => this.displayCollections(data)}>
               {data}
             </Button>)
@@ -103,7 +102,7 @@ class MovieCollections extends React.Component {
           </DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-slide-description">
-              {this.state.listmovies.map(data => data)}
+              {this.state.listMovies.map(data => data)}
             </DialogContentText>
           </DialogContent>
           <DialogActions>

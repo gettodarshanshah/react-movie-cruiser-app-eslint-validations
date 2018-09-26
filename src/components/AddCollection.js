@@ -62,16 +62,17 @@ class AddCollection extends React.Component {
         temp.push(localStorage.getItem(collectionName));
         temp.push(moviename);
         localStorage.setItem(collectionName, temp);
+        console.log(temp);
     }
 
 
     existingCategory() {
-        let categorylisttemp = [];
+        let categoryListTemp = [];
         // console.log('ec');
         for (var i = 0; i < localStorage.length; i += 1) {
             let localStorageIndex = i;
             if (localStorage.key(localStorageIndex) !== 'loglevel:webpack-dev-server') {
-                categorylisttemp.push(
+                categoryListTemp.push(
                     <Button
                         key={localStorageIndex}
                         onClick={() => this.addToCategory(localStorage.key(localStorageIndex))}>
@@ -81,7 +82,7 @@ class AddCollection extends React.Component {
             }
         }
         this.setState({
-            categoryList : categorylisttemp
+            categoryList : categoryListTemp
         });
 
     }
