@@ -8,6 +8,7 @@
     background-color: $default-background-color;
     overflow-y: auto;
     min-width: 200px;
+    max-width:  300px;
     .card {
         background-color : $card-background-color;
         margin: 4px;

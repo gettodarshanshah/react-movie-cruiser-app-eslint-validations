@@ -59,8 +59,10 @@ class AddCollection extends React.Component {
         // console.log(localStorage.getItem(collectionName));
         const { location } = this.props;
         temp.push(localStorage.getItem(collectionName));
-        temp.push(location.state.moviename);
-        localStorage.setItem(collectionName, temp);
+        if (temp.indexOf(location.state.moviename) === -1) {
+            temp.push(location.state.moviename);
+            localStorage.setItem(collectionName, temp);
+        }
         // console.log(temp);
     }
 
@@ -91,39 +93,39 @@ class AddCollection extends React.Component {
         return (
             <div>
                 <NavBar />
-            <div className='main-div'>
-                <Button variant='outlined' onClick={this.handleClickOpen}>Create New Category</Button>
-                <Button variant='outlined' onClick={this.existingCategory}>Existing Category</Button>
-                {categoryList.map(data => data)}
-                <Dialog
-                    open={open}
-                    onClose={() => { this.handleClose }}
-                    aria-labelledby="form-dialog-title"
-                >
-                    <DialogTitle id="form-dialog-title">Create Category</DialogTitle>
-                    <DialogContent>
-                        <DialogContentText>
-                            Enter Category Name
+                <div className='main-div'>
+                    <Button variant='outlined' onClick={this.handleClickOpen}>Create New Category</Button>
+                    <Button variant='outlined' onClick={this.existingCategory}>Existing Category</Button>
+                    {categoryList.map(data => data)}
+                    <Dialog
+                        open={open}
+                        onClose={() => { this.handleClose }}
+                        aria-labelledby="form-dialog-title"
+                    >
+                        <DialogTitle id="form-dialog-title">Create Category</DialogTitle>
+                        <DialogContent>
+                            <DialogContentText>
+                                Enter Category Name
                     </DialogContentText>
-                        <TextField
-                            autoFocus
-                            margin="dense"
-                            id="name"
-                            label="Category"
-                            type="text"
-                            fullWidth
-                        />
-                    </DialogContent>
-                    <DialogActions>
-                        <Button onClick={this.handleCreate} color="primary">
-                            Create
+                            <TextField
+                                autoFocus
+                                margin="dense"
+                                id="name"
+                                label="Category"
+                                type="text"
+                                fullWidth
+                            />
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={this.handleCreate} color="primary">
+                                Create
                         </Button>
-                        <Button onClick={this.handleClose} color="primary">
-                            Cancel
+                            <Button onClick={this.handleClose} color="primary">
+                                Cancel
                         </Button>
-                    </DialogActions>
-                </Dialog>
-            </div>
+                        </DialogActions>
+                    </Dialog>
+                </div>
             </div>
         );
     }
