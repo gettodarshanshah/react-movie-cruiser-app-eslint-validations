@@ -2,7 +2,6 @@
 /* eslint react/prop-types: 0 */
 /* eslint no-unused-expressions:0 */
 
-
 import React from 'react';
 import NavBar from './NavigationBar';
 import Button from '@material-ui/core/Button';
