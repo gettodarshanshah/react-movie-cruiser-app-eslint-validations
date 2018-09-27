@@ -11,6 +11,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import Snackbar from '@material-ui/core/Snackbar';
 
 class AddCollection extends React.Component {
 
@@ -18,6 +19,7 @@ class AddCollection extends React.Component {
         super(props);
         this.state = {
             open: false,
+            openSnack: false,
             categoryList: []
         };
         this.handleClickOpen = this.handleClickOpen.bind(this);
@@ -33,7 +35,7 @@ class AddCollection extends React.Component {
     };
 
     handleClose() {
-        this.setState({ open: false });
+        this.setState({ open: false, openSnack: false });
     };
 
     handleCreate() {
@@ -54,17 +56,18 @@ class AddCollection extends React.Component {
     }
 
     addToCategory(collectionName) {
-        // console.log(collectionName);
         let temp;
         temp = localStorage.getItem(collectionName);
         let tempArray = temp.split(',');
-        // console.log(localStorage.getItem(collectionName));
         const { location } = this.props;
         // temp.push(localStorage.getItem(collectionName));
         if (tempArray.indexOf(location.state.moviename) === -1) {
             temp = temp + ',';
             temp = temp + location.state.moviename;
             localStorage.setItem(collectionName, temp);
+        }
+        else {
+            this.setState({ openSnack: true });
         }
         // console.log(temp);
     }
@@ -92,7 +95,8 @@ class AddCollection extends React.Component {
     }
 
     render() {
-        let { categoryList, open } = this.state;
+        let { categoryList, open, openSnack } = this.state;
+        let { location } = this.props;
         return (
             <div>
                 <NavBar />
@@ -128,6 +132,17 @@ class AddCollection extends React.Component {
                         </Button>
                         </DialogActions>
                     </Dialog>
+                    <Snackbar
+                        anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+                        open={openSnack}
+                        onClose={this.handleClose}
+                        ContentProps={{
+                            'aria-describedby': 'message-id',
+                        }}
+                        message={<span id="message-id">
+                            `{location.state.moviename}` already exist in this category
+                            </span>}
+                    />
                 </div>
             </div>
         );

@@ -91,7 +91,7 @@ class MovieCollections extends React.Component {
             </strong>
           </Typography>
           {listCategory.map((data) => {
-            return (<Button variant='outlined' onClick={() => this.displayCollections(data)}>
+            return (<Button variant='outlined' key={data} onClick={() => this.displayCollections(data)}>
               {data}
             </Button>)
           })}
