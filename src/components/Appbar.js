@@ -9,17 +9,28 @@ import Input from '@material-ui/core/Input';
 import Homeicon from '@material-ui/icons/HomeTwoTone';
 import Button from '@material-ui/core/Button';
 import { NavLink } from 'react-router-dom';
+// import Drawer from '@material-ui/core/Drawer';
+// import List from '@material-ui/core/List';
+// import Divider from '@material-ui/core/Divider';
 
 
 class Appbar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: null
+            value: null,
+            // left: false
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleHome = this.handleHome.bind(this);
+        this.toggleDrawer = this.toggleDrawer.bind(this);
     }
+
+    toggleDrawer(side, open){
+        this.setState({
+          [side]: open,
+        });
+      };
 
     handleChange(event) {
         if (event.target.value == null) {
@@ -61,7 +72,24 @@ class Appbar extends React.Component {
                         <Button onClick={() => { handleSearch(value) }} variant="extendedFab">Search</Button>
                     </div>
                 </Toolbar>
+
+                {/* <Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)}>
+                 <div
+                     tabIndex={0}
+                     role="button"
+                     onClick={()=>{this.toggleDrawer('left', false)}}
+                     onKeyDown={()=>{this.toggleDrawer('left', false)}}
+                 >
+                 </div>
+                 <div className="list">
+                         <List></List>
+                         <Divider />
+                         <List></List>
+                     </div>
+             </Drawer> */}
             </AppBar>
+            
+          
         );
     }
 }

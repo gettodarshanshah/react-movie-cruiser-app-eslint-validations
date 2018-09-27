@@ -41,7 +41,9 @@ class MovieDetailComp extends React.Component {
                 <br></br>
                 <br></br>
                 <div className='parent-container'>
+                    <div className = 'img'>
                     <img src={`https://image.tmdb.org/t/p/original/${movies.poster_path}`} alt='Nothing'></img>
+                    </div>
                     <div className='text'>
                         <Typography variant='headline' >
                             <strong>Movie Title :</strong> {movies.title}
@@ -61,7 +63,7 @@ class MovieDetailComp extends React.Component {
                         <Typography variant='subheading' color='inherit'>
                             <strong>Overview :</strong> {movies.overview}
                         </Typography>
-                    </div>
+                   
                     <Button className='button-style' variant='raised' onClick={() => this.handlerNavigate()}>
                         {/* <NavLink className='button-style' to='/AddCollection'> */}
                         Add to Collection
@@ -74,6 +76,7 @@ class MovieDetailComp extends React.Component {
                                 }
                             }}></Link>
                     </Button>
+                    </div>
                 </div>
             </div>
 

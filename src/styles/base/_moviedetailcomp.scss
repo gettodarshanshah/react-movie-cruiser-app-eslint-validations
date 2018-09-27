@@ -1,19 +1,27 @@
 @import 'settings';
 
 .parent-container{
-    width : 300px;
-    margin: auto;
-    margin-top: 0;
+    margin-left: 5%;
+    padding: auto;
+    display: flex;
+    flex-wrap: wrap;
     img{
-        width : 250px;
-        height: 300px;
+        width : 310px;
+        height: 470px;
+        margin-left: 20%;
     }
     .text{
-        width: 250px;
-    }
-    .button-style{
-        text-decoration: none;
-        color : black;
-        width: 250px;
+        flex-direction: column;
+        max-width: 500px;
+        margin-left: 10%;
+        text-align: justify;
+        justify-content: space-between;
+        .button-style{
+            text-decoration: none;
+            color : black;
+            width: 250px;
+            display: grid;
+            // margin-top:10%; 
+        }
     }
 }
