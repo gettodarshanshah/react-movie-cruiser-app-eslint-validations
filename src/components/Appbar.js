@@ -43,7 +43,7 @@ class Appbar extends React.Component {
         const { handleSearch } = this.props;
         let { value } = this.state;
         return (
-            <AppBar className='appbar' position='static'>
+            <AppBar className='appbar' position='sticky'>
                 <Toolbar className='toolbar'>
                     <div className='appbar-left'>
                         <Homeicon className='homeicon' onClick={this.handleHome} />
