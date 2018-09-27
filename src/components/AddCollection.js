@@ -55,12 +55,15 @@ class AddCollection extends React.Component {
 
     addToCategory(collectionName) {
         // console.log(collectionName);
-        let temp = [];
+        let temp;
+        temp = localStorage.getItem(collectionName);
+        let tempArray = temp.split(',');
         // console.log(localStorage.getItem(collectionName));
         const { location } = this.props;
-        temp.push(localStorage.getItem(collectionName));
-        if (temp.indexOf(location.state.moviename) === -1) {
-            temp.push(location.state.moviename);
+        // temp.push(localStorage.getItem(collectionName));
+        if (tempArray.indexOf(location.state.moviename) === -1) {
+            temp = temp + ',';
+            temp = temp + location.state.moviename;
             localStorage.setItem(collectionName, temp);
         }
         // console.log(temp);
