@@ -1,30 +1,32 @@
 @import 'settings';
+
 .popular-movies-card{ 
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin-top: 0.5em;
-    background-color:$default-background-color;
+    // margin-top: 0.5em;
+    background-color:$card-background-color;
     .card {
-        background-color:$card-background-color;
+        background-color:$default-background-color;
         margin: 10px;
         padding: 20px;
         font-size: 10px;
-        width: 20%;
-    }
-    .card-action-area{
-        display: content;
-    }
-    .cardcontent{
-        height: 100px;
-    }
-    .card-actions{
-        padding-left: 0px;
-        padding-right: 0px;
-        display: grid;
-    }
-    .button-style{
-        text-decoration: none;
-        color : black;
+        width : 250px;
+        .card-action-area{
+            display: content;
+        }
+        .cardcontent{
+            height: 100px;
+        }
+        .card-actions{
+            padding-left: 0px;
+            padding-right: 0px;
+            display: grid;
+        }
+        .button-style{
+            text-decoration: none;
+            color : black;
+        }
     }
 }

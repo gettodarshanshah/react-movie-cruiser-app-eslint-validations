@@ -9,7 +9,6 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import { Typography } from '@material-ui/core';
 
 class MovieCollections extends React.Component {
   constructor(props) {
@@ -57,7 +56,7 @@ class MovieCollections extends React.Component {
       listMoviesTemp.push(
         <div key={localStorageIndex} variant='contained'>
           {collection[0][localStorageIndex]}
-          <Button variant='text' onClick={()=>{this.removeMovie(key,i)}}>X</Button>
+          <Button variant='text' onClick={() => { this.removeMovie(key, i) }}>X</Button>
         </div>
 
       )
@@ -71,13 +70,13 @@ class MovieCollections extends React.Component {
 
   }
 
-  removeCategory(key){
+  removeCategory(key) {
     localStorage.removeItem(key);
     this.setState({});
   }
 
-  removeMovie(key,localStorageIndex){
-    console.log('remove movie()',localStorage.getItem(key)[localStorageIndex]);
+  removeMovie(key, localStorageIndex) {
+    console.log('remove movie()', localStorage.getItem(key)[localStorageIndex]);
     this.setState({});
   }
 
@@ -98,16 +97,14 @@ class MovieCollections extends React.Component {
       <div>
         <NavBar />
         <div className='movie-collections'>
-          <Typography className='heading' variant='headline'>
-            <strong>
-              Movie Categories and Collections
-            </strong>
-          </Typography>
+          <p className='popular-heading' variant='display1'>
+            Movie Categories
+          </p>
           {listCategory.map((data) => {
-            return (<div key={data}><Button variant='outlined' onClick={() => this.displayCollections(data)}>
+            return (<div key={data}><Button variant='flat' onClick={() => this.displayCollections(data)}>
               {data}
             </Button>
-            <Button variant='text' onClick={() => this.removeCategory(data)}>X</Button>
+              <Button variant='text' onClick={() => this.removeCategory(data)}>X</Button>
             </div>)
           })}
         </div>

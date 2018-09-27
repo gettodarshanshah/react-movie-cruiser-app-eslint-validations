@@ -7,10 +7,22 @@
 @import 'base/addcollection';
 @import 'base/moviecollections';
 
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
 html{
-    background-color:#C5EDAC;
+    background-color:azure;
+    color: $default-color;
 }
 
 .popular-heading{
     text-align: center;
+    background-color: azure;
+    color: $default-color;
+    font-size: 2.125rem;
+    font-weight: 400;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    line-height: 1.20588em;
 }

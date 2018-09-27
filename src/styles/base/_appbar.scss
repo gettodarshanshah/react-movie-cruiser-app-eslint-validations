@@ -2,17 +2,25 @@
 
 .toolbar{
     color : $default-color;
-    background-color: #7A918D;
+    background-color: $default-background-color;
     float: left;
+    display: flex;
+    justify-content: space-between;
     .input{
-        color: black;
-        padding:0 2%;
-        margin: 1%;
+        color: $default-color;
+        width: 20vw;
+    }
+    .appbar-left{
+        // float: left;
+        display : inherit;
+        h2{
+            margin: auto;
+            padding: 3%;
+        }
     }
     .appbar-right{
-        width: 100vw;
-        display : flex;
-        justify-content: flex-end;
+        // float: right;
+        display : inherit;
     }
 
     .homeicon{

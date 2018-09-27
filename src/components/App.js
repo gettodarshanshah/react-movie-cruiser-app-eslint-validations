@@ -1,10 +1,10 @@
 /* eslint react/jsx-filename-extension:0 */
 
-import React, { Fragment } from 'react';
-import Typography from '@material-ui/core/Typography';
+import React from 'react';
 import Appbar from './Appbar';
 import PopularMovies from './PopularMovies';
 import MoviesCard from './SearchedMovies';
+import { Paper } from '@material-ui/core';
 import '../styles/styles.scss';
 
 const API_KEY = 'c7c2954a02370c3c8e407441cee0a34f';
@@ -29,7 +29,7 @@ class App extends React.Component {
                     popularMovies: movieList.results
                 });
             })
-            // .catch(error => { console.log(error) });
+        // .catch(error => { console.log(error) });
     }
 
     handleSearch(movieName) {
@@ -37,61 +37,60 @@ class App extends React.Component {
             movieDetails: [],
             movieValue: movieName
         });
-        if(movieName == null)
-        {
+        if (movieName == null) {
             window.location.reload();
         }
-        else{
-        fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${movieName}&page=1&include_adult=false`)
-            .then(response => response.json())
-            .then(response => {
-                this.setState({ totalPages: response['total_pages'] });
-                const {totalPages} = this.state;
-                const { movieValue } = this.state;
-                let tempMovies = [];
-                for (let i = 1; i <= totalPages; i += 1) {
-                    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${movieValue}&page=${i}&include_adult=false`)
-                        .then(resp => resp.json())
-                        .then(moviesData => {
-                            moviesData.results.forEach(result => {
-                                tempMovies.push(result);
+        else {
+            fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${movieName}&page=1&include_adult=false`)
+                .then(response => response.json())
+                .then(response => {
+                    this.setState({ totalPages: response['total_pages'] });
+                    const { totalPages } = this.state;
+                    const { movieValue } = this.state;
+                    let tempMovies = [];
+                    for (let i = 1; i <= totalPages; i += 1) {
+                        fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${movieValue}&page=${i}&include_adult=false`)
+                            .then(resp => resp.json())
+                            .then(moviesData => {
+                                moviesData.results.forEach(result => {
+                                    tempMovies.push(result);
+                                })
+                                this.setState({
+                                    movieDetails: tempMovies
+                                });
                             })
-                            this.setState({
-                                movieDetails: tempMovies
-                            });
-                        })
                         // .catch(error => { Console.log(error) });
-                };
-            }
-            )
+                    };
+                }
+                )
             // .catch(error => { console.log(error) });
         }
     }
 
     render() {
-        const {movieDetails} = this.state;
-        const {popularMovies} = this.state;
+        const { movieDetails } = this.state;
+        const { popularMovies } = this.state;
         return (
-            <Fragment>
-                <div>
-                    <Appbar
-                        movieDetails={movieDetails}
-                        handleSearch={this.handleSearch}
-                    />
-                </div>
-                <div>
+            <Paper>
+
+                <Appbar
+                    movieDetails={movieDetails}
+                    handleSearch={this.handleSearch}
+                />
+
+
                 <MoviesCard
                     movieList={movieDetails}
                 />
-                </div>
-                <div>
-                    <Typography className='popular-heading' variant='display1' gutterBottom>
-                        Popular Movies
-                    </Typography>
-                    <PopularMovies popularMovies={popularMovies}
-                    />
-                </div>
-            </Fragment>
+
+
+                <p className='popular-heading' variant='display1'>
+                    Popular Movies
+                </p>
+                <PopularMovies popularMovies={popularMovies}
+                />
+
+            </Paper>
         )
     }
 

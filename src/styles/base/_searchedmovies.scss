@@ -5,12 +5,12 @@
     flex-wrap: nowrap;
     // justify-content: space-around;
     margin-top: 0.5em;
-    background-color: $default-background-color;
+    background-color: $card-background-color;
     overflow-y: auto;
     min-width: 200px;
     // max-width:  300px;
     .card {
-        background-color : $card-background-color;
+        background-color : $default-background-color;
         margin: 4px;
         padding: 5px;
         // font-size: 20px;

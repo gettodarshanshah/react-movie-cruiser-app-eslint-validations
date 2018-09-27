@@ -29,7 +29,7 @@ const PopularMoviesCard = ({popularMovieList}) => {
                                     />
                                     <CardContent className='cardcontent'>
                                         <Typography gutterBottom variant="title">
-                                            Title : {title}
+                                            {title}
                                         </Typography>
                                         <Typography variant='caption'>
                                             <strong>

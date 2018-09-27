@@ -40,8 +40,6 @@ const SearchedMovies = (props) => {
                   />
                   <CardContent className="cardcontent">
                     <Typography gutterBottom variant="title">
-                      Title :
-                      {' '}
                       {title}
                     </Typography>
                     <Typography variant="caption">

@@ -21,11 +21,11 @@ class Appbar extends React.Component {
         this.handleHome = this.handleHome.bind(this);
     }
 
-    handleChange(event) {  
-        if(event.target.value == null){
+    handleChange(event) {
+        if (event.target.value == null) {
             window.location.reload();
         }
-        else{
+        else {
             this.setState({
                 value: event.target.value
             });
@@ -40,12 +40,12 @@ class Appbar extends React.Component {
 
     render() {
 
-        const {handleSearch} = this.props;
-        let {value} = this.state;
+        const { handleSearch } = this.props;
+        let { value } = this.state;
         return (
-            <div>
-                <AppBar position='static'>
-                    <Toolbar className='toolbar'>
+            <AppBar className='appbar' position='static'>
+                <Toolbar className='toolbar'>
+                    <div className='appbar-left'>
                         <Homeicon className='homeicon' onClick={this.handleHome} />
                         <Typography className='home' variant="title" color="inherit" onClick={this.handleHome}>
                             Home
@@ -55,14 +55,13 @@ class Appbar extends React.Component {
                                 Collections
                             </NavLink>
                         </Typography>
-                        <div className='appbar-right'>
-                            <Input className='input' placeholder='Movie Name..' onChange={this.handleChange}></Input>
-                            <Button onClick={() => { handleSearch(value) }} variant="extendedFab">Search</Button>
-                        </div>
-                    </Toolbar>
-                </AppBar>
-            </div>
-
+                    </div>
+                    <div className='appbar-right'>
+                        <Input className='input' placeholder='Movie Name..' onChange={this.handleChange}></Input>
+                        <Button onClick={() => { handleSearch(value) }} variant="extendedFab">Search</Button>
+                    </div>
+                </Toolbar>
+            </AppBar>
         );
     }
 }
