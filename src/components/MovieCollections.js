@@ -23,6 +23,8 @@ class MovieCollections extends React.Component {
     this.displayCollections = this.displayCollections.bind(this);
     this.handleClickOpen = this.handleClickOpen.bind(this);
     this.handleClose = this.handleClose.bind(this);
+    this.removeCategory = this.removeCategory.bind(this);
+    this.removeMovie = this.removeMovie.bind(this);
   }
 
   componentDidMount() {
@@ -53,9 +55,10 @@ class MovieCollections extends React.Component {
       // console.log(this.state.collection[0][i]);
       let localStorageIndex = i;
       listMoviesTemp.push(
-        <Button key={localStorageIndex} variant='contained'>
+        <div key={localStorageIndex} variant='contained'>
           {collection[0][localStorageIndex]}
-        </Button>
+          <Button variant='text' onClick={()=>{this.removeMovie(key,i)}}>X</Button>
+        </div>
 
       )
 
@@ -66,6 +69,16 @@ class MovieCollections extends React.Component {
     });
     this.handleClickOpen();
 
+  }
+
+  removeCategory(key){
+    localStorage.removeItem(key);
+    this.setState({});
+  }
+
+  removeMovie(key,localStorageIndex){
+    console.log('remove movie()',localStorage.getItem(key)[localStorageIndex]);
+    this.setState({});
   }
 
   handleClickOpen() {
@@ -91,9 +104,11 @@ class MovieCollections extends React.Component {
             </strong>
           </Typography>
           {listCategory.map((data) => {
-            return (<Button variant='outlined' key={data} onClick={() => this.displayCollections(data)}>
+            return (<div key={data}><Button variant='outlined' onClick={() => this.displayCollections(data)}>
               {data}
-            </Button>)
+            </Button>
+            <Button variant='text' onClick={() => this.removeCategory(data)}>X</Button>
+            </div>)
           })}
         </div>
         <Dialog
